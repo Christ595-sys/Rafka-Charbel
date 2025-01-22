@@ -18,17 +18,17 @@
       font-family: 'Poppins', sans-serif;
       color: white;
       overflow: hidden;
-      padding: 0 10px; /* Prevent content from touching screen edges */
+      padding: 0 10px;
     }
 
     .message {
       text-align: center;
-      font-size: 4rem; /* Adjusted font size for smaller screens */
+      font-size: 4rem;
       font-weight: bold;
       text-transform: uppercase;
       animation: glow 2s infinite alternate;
       margin-bottom: 20px;
-      line-height: 1.2; /* Improve readability on smaller screens */
+      line-height: 1.2;
     }
 
     .hearts {
@@ -39,7 +39,7 @@
 
     .heart {
       display: inline-block;
-      width: 20px; /* Adjusted size for smaller screens */
+      width: 20px;
       height: 20px;
       margin: 0 6px;
       background-color: white;
@@ -51,7 +51,7 @@
     .heart::after {
       content: '';
       position: absolute;
-      width: 20px; /* Adjusted size for smaller screens */
+      width: 20px;
       height: 20px;
       background-color: white;
       border-radius: 50%;
@@ -102,14 +102,14 @@
 
     .button-container {
       margin-top: 20px;
-      width: 100%; /* Ensure the button doesn't overflow */
-      text-align: center; /* Center the button */
+      width: 100%;
+      text-align: center;
     }
 
     .preview-button {
       display: inline-block;
-      padding: 12px 25px; /* Adjust padding for smaller screens */
-      font-size: 1.2rem; /* Adjust font size */
+      padding: 12px 25px;
+      font-size: 1.2rem;
       font-weight: bold;
       text-transform: uppercase;
       text-decoration: none;
@@ -130,10 +130,23 @@
       transform: scale(1);
     }
 
-    /* Responsive adjustments for smaller screens */
+    .video-container {
+      display: none;
+      margin-top: 20px;
+      text-align: center;
+      width: 100%;
+    }
+
+    video {
+      max-width: 100%;
+      height: auto;
+      border: 5px solid white;
+      border-radius: 10px;
+    }
+
     @media (max-width: 600px) {
       .message {
-        font-size: 2.5rem; /* Further reduce font size for small devices */
+        font-size: 2.5rem;
       }
 
       .heart {
@@ -168,10 +181,17 @@
     <button class="preview-button" onclick="openVideo()">One Year Preview</button>
   </div>
 
+  <div class="video-container">
+    <video controls>
+      <source src="Charbel and Rafka.MP4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
   <script>
     function openVideo() {
-      const videoPath = "file:///C:/Users/user/Desktop/Work/Rafka%20and%20Charbel/Charbel%20and%20Rafka.MP4"; // Corrected file path
-      window.open(videoPath, "_blank");
+      const videoContainer = document.querySelector('.video-container');
+      videoContainer.style.display = 'block'; // Show the video container
     }
   </script>
 </body>
