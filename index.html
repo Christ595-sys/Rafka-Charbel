@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Anniversary Animation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background-color: red;
+      font-family: 'Poppins', sans-serif;
+      color: white;
+      overflow: hidden;
+      padding: 0 10px; /* Prevent content from touching screen edges */
+    }
+
+    .message {
+      text-align: center;
+      font-size: 4rem; /* Adjusted font size for smaller screens */
+      font-weight: bold;
+      text-transform: uppercase;
+      animation: glow 2s infinite alternate;
+      margin-bottom: 20px;
+      line-height: 1.2; /* Improve readability on smaller screens */
+    }
+
+    .hearts {
+      display: inline-block;
+      margin-left: 10px;
+      position: relative;
+    }
+
+    .heart {
+      display: inline-block;
+      width: 20px; /* Adjusted size for smaller screens */
+      height: 20px;
+      margin: 0 6px;
+      background-color: white;
+      transform: rotate(45deg);
+      animation: float 2s infinite ease-in-out;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px; /* Adjusted size for smaller screens */
+      height: 20px;
+      background-color: white;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: -10px;
+    }
+
+    .heart:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .heart:nth-child(2) {
+      animation-delay: 0.5s;
+    }
+
+    .heart:nth-child(3) {
+      animation-delay: 1s;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0) rotate(45deg);
+      }
+      50% {
+        transform: translateY(-10px) rotate(45deg);
+      }
+      100% {
+        transform: translateY(0) rotate(45deg);
+      }
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px white, 0 0 10px white, 0 0 15px #ff69b4, 0 0 20px #ff69b4, 0 0 25px #ff69b4, 0 0 30px #ff69b4;
+      }
+      to {
+        text-shadow: 0 0 10px white, 0 0 20px #ff1493, 0 0 30px #ff1493, 0 0 40px #ff1493, 0 0 50px #ff1493, 0 0 60px #ff1493;
+      }
+    }
+
+    .button-container {
+      margin-top: 20px;
+      width: 100%; /* Ensure the button doesn't overflow */
+      text-align: center; /* Center the button */
+    }
+
+    .preview-button {
+      display: inline-block;
+      padding: 12px 25px; /* Adjust padding for smaller screens */
+      font-size: 1.2rem; /* Adjust font size */
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: white;
+      background-color: #ff1493;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .preview-button:hover {
+      background-color: #ff69b4;
+      transform: scale(1.1);
+    }
+
+    .preview-button:active {
+      transform: scale(1);
+    }
+
+    /* Responsive adjustments for smaller screens */
+    @media (max-width: 600px) {
+      .message {
+        font-size: 2.5rem; /* Further reduce font size for small devices */
+      }
+
+      .heart {
+        width: 15px;
+        height: 15px;
+      }
+
+      .heart::before,
+      .heart::after {
+        width: 15px;
+        height: 15px;
+      }
+
+      .preview-button {
+        padding: 10px 20px;
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="message">
+    Happy One Year <br>Anniversary<br>
+    <div class="hearts">
+      <div class="heart"></div>
+      <div class="heart"></div>
+      <div class="heart"></div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button class="preview-button" onclick="openVideo()">One Year Preview</button>
+  </div>
+
+  <script>
+    function openVideo() {
+      const videoPath = "file:///C:/Users/user/Desktop/Work/Rafka%20and%20Charbel/Charbel%20and%20Rafka.MP4"; // Corrected file path
+      window.open(videoPath, "_blank");
+    }
+  </script>
+</body>
+</html>
